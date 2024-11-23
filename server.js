@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 5001
 const {DB_USER, DB_PASSWORD} = process.env
 
-const MONGODB_URL = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@notes.lqt9g.mongodb.net/notes?retryWrites=true&w=majority&appName=notes`
+const MONGODB_URL = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@notes.lqt9g.mongodb.net/Notes?retryWrites=true&w=majority&appName=notes`
 
 
 app.use(express());
@@ -20,7 +20,7 @@ app.use(cors());
 
 app.use("/notes", notesRoutes);
 
-mongoose.connect(MONGODB_URL, {useNewUrlParser: true,useUnifiedTopology: true})
+mongoose.connect(MONGODB_URL)
 .then(() =>{
     console.log("Connected to MongoDB");
     app.listen(PORT, () =>{
