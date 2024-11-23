@@ -8,7 +8,7 @@ const notesRoutes = require("./routes/notes");
 
 const app = express();
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 5001
 const MONGODB_URL = process.env.MONGO_URL
 
 app.use(express());
