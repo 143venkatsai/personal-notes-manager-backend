@@ -7,7 +7,7 @@ require("dotenv").config();
 const router = express.Router();
 // const { check, validationResult } = require("express-validator");
 
-const JWT_SECRET = process.env.JWT_SECRET
+const JWT_SECRET= "yourSuperSecretKey";
 
 // Signup Route
 router.post("/signup", async (req, res) =>{
