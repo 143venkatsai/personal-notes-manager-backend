@@ -5,19 +5,21 @@ const cors = require("cors");
 require("dotenv").config();
 
 const notesRoutes = require("./routes/notes");
+const userRoutes = require("./routes/auth");
 
 const app = express();
 
 const PORT = process.env.PORT || 5001
-const {DB_USER, DB_PASSWORD} = process.env
+const {MONGO_URL} = process.env
 
-const MONGODB_URL = "mongodb+srv://venkatsaipelluru:HARYoIW1KBjZBQFk@notes.lqt9g.mongodb.net/notes?retryWrites=true&w=majority&appName=notes"
+const MONGODB_URL = MONGO_URL
 
 
 app.use(express());
 app.use(bodyParser.json());
 app.use(cors());
 
+app.use("/auth", userRoutes);
 app.use("/notes", notesRoutes);
 
 mongoose.connect(MONGODB_URL)
