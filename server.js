@@ -22,7 +22,7 @@ app.use(cors());
 app.use("/auth", userRoutes);
 app.use("/notes", notesRoutes);
 
-mongoose.connect(MONGODB_URL)
+mongoose.connect("mongodb+srv://venkatsaipelluru:HARYoIW1KBjZBQFk@notes.lqt9g.mongodb.net/notes?retryWrites=true&w=majority&appName=notes")
 .then(() =>{
     console.log("Connected to MongoDB");
     app.listen(PORT, () =>{
